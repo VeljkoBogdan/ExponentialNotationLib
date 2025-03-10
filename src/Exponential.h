@@ -8,7 +8,7 @@ namespace expnot {
 
     class Exponential {
     public:
-        inline Exponential(double mantissa, long exponent);
+        inline Exponential(double mantissa, long long int exponent);
         inline Exponential();
         inline Exponential operator+(const Exponential &other) const;
         inline Exponential operator-(const Exponential &other) const;
@@ -27,7 +27,7 @@ namespace expnot {
     // --------------------------------------------------------------------------------------------------------
 
     // Constructor with normalization
-    inline Exponential::Exponential(double mantissa, long exponent) : mantissa(mantissa), exponent(exponent) {
+    inline Exponential::Exponential(double mantissa, long long exponent) : mantissa(mantissa), exponent(exponent) {
         normalize();
     }
 

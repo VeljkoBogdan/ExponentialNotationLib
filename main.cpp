@@ -40,5 +40,9 @@ int main() {
 
     std::cout << time.count() / 1000.0 / 1000.0 << " seconds" << std::endl;
 
+    expnot::Exponential a(1.5, 10);
+    expnot::Exponential b(1, 9);
+    std::cout << (a / b).toString() << std::endl;
+
     return 0;
 }

@@ -43,10 +43,10 @@ namespace expnot {
     inline Exponential Exponential::operator+(const Exponential &other) const {
         if (exponent > other.exponent) {
             double adjMantissa = mantissa * std::pow(10, exponent - other.exponent) + other.mantissa;
-            return Exponential(adjMantissa, other.exponent);
+            return {adjMantissa, other.exponent};
         } else {
             double adjMantissa = mantissa + other.mantissa * std::pow(10, other.exponent - exponent);
-            return Exponential(adjMantissa, exponent);
+            return {adjMantissa, exponent};
         }
     }
 
@@ -59,10 +59,10 @@ namespace expnot {
     inline Exponential Exponential::operator-(const Exponential &other) const {
         if (exponent > other.exponent) {
             double adjMantissa = mantissa - other.mantissa * std::pow(10, other.exponent - exponent);
-            return Exponential(adjMantissa, exponent);
+            return {adjMantissa, exponent};
         } else {
             double adjMantissa = mantissa * std::pow(10, exponent - other.exponent) - other.mantissa;
-            return Exponential(adjMantissa, other.exponent);
+            return {adjMantissa, other.exponent};
         }
     }
 
@@ -73,12 +73,12 @@ namespace expnot {
 
     // Multiplication operator
     inline Exponential Exponential::operator*(const Exponential &other) const {
-        return Exponential(mantissa * other.mantissa, exponent + other.exponent);
+        return {mantissa * other.mantissa, exponent + other.exponent};
     }
 
     // Division operator
     inline Exponential Exponential::operator/(const Exponential &other) const {
-        return Exponential(mantissa / other.mantissa, exponent - other.exponent);
+        return {mantissa / other.mantissa, exponent - other.exponent};
     }
 
     // Insertion operator

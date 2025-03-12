@@ -12,6 +12,7 @@ namespace expnot {
         inline Exponential(double mantissa, long long int exponent);
         inline Exponential();
         inline Exponential operator+(const Exponential &other) const;
+        inline Exponential operator+(const int &other) const;
         inline Exponential operator-(const Exponential &other) const;
         inline Exponential operator*(const Exponential &other) const;
         inline Exponential operator/(const Exponential &other) const;
@@ -46,6 +47,11 @@ namespace expnot {
             double adjMantissa = mantissa + other.mantissa * std::pow(10, other.exponent - exponent);
             return Exponential(adjMantissa, exponent);
         }
+    }
+
+    inline Exponential Exponential::operator+(const int &other) const {
+        const auto otherExp = Exponential(other, 0);
+        return Exponential(mantissa, exponent) + otherExp;
     }
 
     // Subtraction operator

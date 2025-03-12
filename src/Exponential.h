@@ -3,6 +3,7 @@
 
 #include <string>
 #include <cmath>
+#include <iostream>
 
 namespace expnot {
 
@@ -14,6 +15,7 @@ namespace expnot {
         inline Exponential operator-(const Exponential &other) const;
         inline Exponential operator*(const Exponential &other) const;
         inline Exponential operator/(const Exponential &other) const;
+        inline friend std::ostream& operator<<(std::ostream& ostream, const Exponential &exp);
         inline std::string toString() const;
         inline void normalize();
 
@@ -21,6 +23,7 @@ namespace expnot {
         double mantissa;
         long exponent;
     };
+
 
     // --------------------------------------------------------------------------------------------------------
     // ----------------------------------------Implementation--------------------------------------------------
@@ -64,6 +67,12 @@ namespace expnot {
     // Division operator
     inline Exponential Exponential::operator/(const Exponential &other) const {
         return Exponential(mantissa / other.mantissa, exponent - other.exponent);
+    }
+
+    // Insertion operator
+    inline std::ostream & operator<<(std::ostream& ostream, const Exponential &exp) {
+        ostream << exp.toString();
+        return ostream;
     }
 
     // Convert to string

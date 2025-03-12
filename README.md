@@ -26,14 +26,19 @@ To create an exponential number, do:
 expnot::Exponential num(3.5, 20) // 3.5e20
 ```
 
-To print an exponential number, you must first convert it to a string:
+To print an exponential number, you can use ```std::cout```:
 ```c++
-std::string expString = num.toString();
-std::cout << expString << std::endl;
+std::cout << num << std::endl;
 // Output: 3.5e20
 ```
 
-Exponential class naturally handles these operations:
+or you can even convert it to a string:
+```c++
+std::cout << num.toString() << std::endl;
+// Output: 3.5e20
+```
+
+Exponential class naturally handles arithmetic operations between each other:
 ```c++
 expnot::Exponential a(1.5, 10);
 expnot::Exponential b(1, 9);

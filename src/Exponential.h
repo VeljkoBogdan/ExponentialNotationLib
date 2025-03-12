@@ -34,7 +34,7 @@ namespace expnot {
     // --------------------------------------------------------------------------------------------------------
 
     // Constructor with normalization
-    inline Exponential::Exponential(double mantissa, long long exponent) : mantissa(mantissa), exponent(exponent) {
+    inline Exponential::Exponential(const double mantissa, const long long exponent) : mantissa(mantissa), exponent(exponent) {
         normalize();
     }
 
@@ -112,11 +112,13 @@ namespace expnot {
         }
 
         while (std::abs(mantissa) >= 10.0) {
+            if (exponent >= std::numeric_limits<long long>::max() - 1) break;
             mantissa /= 10.0;
             exponent++;
         }
 
         while (std::abs(mantissa) < 1.0 && mantissa != 0.0) {
+            if (exponent <= -std::numeric_limits<long long>::max() + 1) break;
             mantissa *= 10.0;
             exponent--;
         }

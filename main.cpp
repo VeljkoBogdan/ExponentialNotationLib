@@ -44,7 +44,12 @@ int main() {
     expnot::Exponential b(1, 9);
     std::cout << (a / b).toString() << std::endl;
 
-    std::cout << a / 10 << std::endl;
+    std::cout << a << std::endl;
+    std::cout <<
+        expnot::Exponential(
+            -std::numeric_limits<double>::max(),
+            -std::numeric_limits<long long>::max())
+    << std::endl;
 
     return 0;
 }

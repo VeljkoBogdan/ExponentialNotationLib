@@ -102,8 +102,18 @@ Exponential a = Exponential(1.5, 90);
 ### Limitations
 
 - The ```Exponential``` object is limited by the exponent's ```long long``` type, which can go to about **-9,223,372,036,854,775,808**, or **9,223,372,036,854,775,807**
-- Values going over/under these values will cause overflow/underflow of the exponent
+- You don't have to worry about overflow, but the value won't change past the max values!
 - Very large or very small values may suffer from precision loss due to floating-point limitations on the mantissa
+- These are the largest number:
+```
+positive:
+179769313486231575804128197568503885939002350117941411767545627891801114536396644853619288305177042633935372685103635187
+590438437370702292699562517687521668833979406288629832876259672468103520237920172119362601898937975098263032931492834697
+13429932049693599732425511693654044437030940398714664210204414967808.000000e9223372036854775807
+
+negative:
+-1.797693e-9223372036854775499
+```
 
 <hr>
 

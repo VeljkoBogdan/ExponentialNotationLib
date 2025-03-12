@@ -18,6 +18,7 @@ namespace expnot {
         inline Exponential operator*(const Exponential &other) const;
         inline Exponential operator*(const int &other) const;
         inline Exponential operator/(const Exponential &other) const;
+        inline Exponential operator/(const int &other) const;
         inline friend std::ostream& operator<<(std::ostream& ostream, const Exponential &exp);
         inline std::string toString() const;
         inline void normalize();
@@ -85,6 +86,11 @@ namespace expnot {
     // Division operator
     inline Exponential Exponential::operator/(const Exponential &other) const {
         return {mantissa / other.mantissa, exponent - other.exponent};
+    }
+
+    inline Exponential Exponential::operator/(const int &other) const {
+        const auto otherExp = Exponential(other, 0);
+        return Exponential(mantissa, exponent) / otherExp;
     }
 
     // Insertion operator

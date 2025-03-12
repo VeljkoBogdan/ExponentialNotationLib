@@ -44,7 +44,7 @@ int main() {
     expnot::Exponential b(1, 9);
     std::cout << (a / b).toString() << std::endl;
 
-    std::cout << a - 10 << std::endl;
+    std::cout << a * 10 << std::endl;
 
     return 0;
 }

@@ -25,7 +25,7 @@ namespace expnot {
 
     private:
         double mantissa;
-        long exponent;
+        long long exponent;
     };
 
 
